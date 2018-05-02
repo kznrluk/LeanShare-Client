@@ -1,0 +1,91 @@
+.main {
+    display: flex;
+    align-items: center;
+    width: auto;
+}
+
+.dndbox {
+    margin: 10px;
+    height: 120px;
+    width: 120px;
+    border: dashed 5px rgb(80, 84, 92);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.dndbox i {
+    color : rgb(80, 84, 92);
+    font-size: 50px;
+}
+
+.uploading i {
+    animation: uploading 1.5s ease infinite;
+}
+
+.hoveron {
+    animation: mouseOver .5s ease forwards;
+}
+
+.hoverout {
+    animation: mouseLeave .5s ease forwards;
+}
+
+.ButtonsContainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+@keyframes mouseOver {
+    0% { transform: scale(1,1); }
+    100% { transform: scale(1.3,1.3); }
+}
+
+@keyframes mouseLeave {
+    0% { transform: scale(1.3,1.3); }
+    100% { transform: scale(1,1); }
+}
+
+@keyframes uploading {
+    0% { transform:  translate(0px, 0px) scale(1.3,1.3); }
+    49% { opacity: 0;}
+    50% { transform:  translate(0px, -100px) scale(0.8,0.8);}    
+    51% { transform: translate(0px, +100px) scale(0.8,0.8); }
+    52% { opacity: 0;}
+    100% { transform:  translate(0px, 0px) scale(1.3,1.3); }
+}
+
+.Icon {
+    position: relative;
+    display: inline-block;
+    padding-top: 11px;
+    margin: 7px;
+    width: 45px;
+    height: 32px;
+    text-align: center;
+    color: #DCDCDC;
+    background: rgb(80, 84, 92);
+    border-bottom: solid 2px rgb(70, 74, 82);
+    border-radius: 4px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 1px 1px rgba(0, 0, 0, 0.19);
+}
+
+.Icon:active {
+    border-bottom: solid 2px rgba(255,255,255,0.2);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+    color: white;
+}
+.Icon:hover {
+    color: white;
+    background: rgb(75, 79, 87);
+}
+
+.Icon i {
+    position: relative;
+    color: rgb(241, 241, 241);
+    font-size: 28px;
+    top: -3px;
+}

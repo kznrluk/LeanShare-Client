@@ -1,0 +1,26 @@
+{
+  "name": "learnshare-client",
+  "version": "0.0.1",
+  "description": "",
+  "main": "leanshare.js",
+  "scripts": {
+    "start": "./node_modules/electron/dist/electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kznrluk/LeanShare-Client.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kznrluk/LeanShare-Client/issues"
+  },
+  "homepage": "https://github.com/kznrluk/LeanShare-Client#readme",
+  "dependencies": {
+    "axios": "^0.18.0"
+  },
+  "devDependencies": {
+    "electron": "^1.8.3"
+  }
+}
