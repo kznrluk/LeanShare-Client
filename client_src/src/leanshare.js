@@ -3,7 +3,7 @@ import './leanshare.css';
 import Dropzone from 'react-dropzone';
 import axios from 'axios';
 
-// 後にElectronのAPIと差し替え
+// TODO: ElectronのAPIと差し替え
 function execCopy(string){
     const temp = document.createElement('div');
   
@@ -30,7 +30,7 @@ const Icon = (props) => {
     );
 }
 
-class Nyago extends Component {
+class LeanShareClient extends Component {
     constructor(){
         super();
         this.state = {
@@ -53,8 +53,6 @@ class Nyago extends Component {
             return axios.post("http://localhost:3001/api/upload/", formData, {
                 headers: { "X-Requested-With": "XMLHttpRequest" },
             }).then(res => {
-                // res
-                console.log(res)
                 execCopy(res.data.url)
             })
         });
@@ -74,15 +72,18 @@ class Nyago extends Component {
     }
 
     render(){
-        const dropZoneIcon = (this.state.viewCheck) ? "fa-check-circle" : "fa-chevron-circle-up";
+        const icon = this.state.viewCheck ? "fa-check-circle" : "fa-chevron-circle-up";
+        const hoverStatus = this.state.isHovering ? 'hoveron' : 'hoverout';
+        const uploadingStatus = this.state.uploading ? 'uploading' : '';
+
         return (
             <div className="main">
-                <Dropzone className={`dndbox ${this.state.uploading ? 'uploading' : ''}`}
+                <Dropzone className={`dndbox ${uploadingStatus}`}
                     onDrop={this.handleOnDrop}
                     onMouseEnter={this.toggleMouseOver}
                     onMouseLeave={this.toggleMouseOver}
                     accept="image/*">
-                    <i className={`fas ${dropZoneIcon} ${this.state.isHovering ? 'hoveron' : 'hoverout'}`}></i>
+                    <i className={`fas ${icon} ${hoverStatus}`}></i>
                 </Dropzone>
                 <div className="ButtonsContainer">
                     <Icon iconName='fa-external-link-alt'/>
@@ -93,4 +94,4 @@ class Nyago extends Component {
     }
 }
 
-export default Nyago;
+export default LeanShareClient;
